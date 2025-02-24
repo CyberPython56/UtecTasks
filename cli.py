@@ -3,8 +3,8 @@ from tasks import get_response
 
 
 def correct_ip(ip: str):
-    return all(x.isdigit() or x == '.' for x in ip) and len(ip.split('.')) == 4 \
-        and all(map(lambda x: 0 <= int(x) <= 255 if ip.find('..') == -1 else False, ip.split('.')))
+    return all(x.isdigit() or x == '.' for x in ip) and len(ip.split('.')) == 4 and ip.find('..') == -1 \
+        and all(0 <= int(x) <= 255 for x in ip.split('.'))
 
 
 def correct_port(port: str):
