@@ -4,11 +4,11 @@ from tasks import get_response
 
 def correct_ip(ip: str):
     return all(x.isdigit() or x == '.' for x in ip) and len(ip.split('.')) == 4 \
-            and all(map(lambda x: 0 <= int(x) <= 255 if ip.find('..') == -1 else False, ip.split('.')))
+        and all(map(lambda x: 0 <= int(x) <= 255 if ip.find('..') == -1 else False, ip.split('.')))
+
 
 def correct_port(port: str):
     return all(x.isdigit() for x in port) and 0 <= int(port) <= 65535
-
 
 
 @click.command()
